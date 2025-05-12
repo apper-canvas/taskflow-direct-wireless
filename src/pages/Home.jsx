@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import MainFeature from '../components/MainFeature';
+import { useConfirm } from '../context/ConfirmContext';
 import getIcon from '../utils/iconUtils';
 
 // Sample initial data for boards
@@ -82,6 +83,7 @@ const Home = () => {
   const [isCreatingBoard, setIsCreatingBoard] = useState(false);
   const [newBoardTitle, setNewBoardTitle] = useState('');
   const [newBoardDescription, setNewBoardDescription] = useState('');
+  const confirm = useConfirm();
 
   // Declare all icons at the top
   const PlusIcon = getIcon('Plus');
@@ -147,12 +149,21 @@ const Home = () => {
     setSelectedBoard(updatedBoard);
   };
 
-  const handleDeleteBoard = (boardId) => {
-    if (confirm('Are you sure you want to delete this board? This action cannot be undone.')) {
+  const handleDeleteBoard = async (boardId) => {
+    const result = await confirm({
+      title: 'Delete Board',
+      message: 'Are you sure you want to delete this board? This action cannot be undone.',
+      confirmText: 'Delete',
+      cancelText: 'Cancel',
+      type: 'danger'
+    });
+    
+    if (result) {
       const updatedBoards = boards.filter(board => board.id !== boardId);
       setBoards(updatedBoards);
       setSelectedBoard(null);
       toast.info('Board deleted');
+      return true;
     }
   };
 

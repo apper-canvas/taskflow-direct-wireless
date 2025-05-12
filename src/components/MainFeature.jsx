@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'react-toastify';
 import getIcon from '../utils/iconUtils';
+import { useConfirm } from '../context/ConfirmContext';
 
 const MainFeature = ({ board, onUpdateBoard }) => {
   const [lists, setLists] = useState(board.lists || []);
@@ -15,6 +16,7 @@ const MainFeature = ({ board, onUpdateBoard }) => {
   const [newCardDescription, setNewCardDescription] = useState('');
   const [editingListId, setEditingListId] = useState(null);
   const [editingListTitle, setEditingListTitle] = useState('');
+  const confirm = useConfirm();
   
   // Declare all icons at the top
   const PlusIcon = getIcon('Plus');
@@ -159,28 +161,46 @@ const MainFeature = ({ board, onUpdateBoard }) => {
     toast.success('List title updated');
   };
 
-  const handleDeleteList = (listId) => {
-    if (confirm('Are you sure you want to delete this list and all its cards?')) {
+  const handleDeleteList = async (listId) => {
+    const result = await confirm({
+      title: 'Delete List',
+      message: 'Are you sure you want to delete this list and all its cards?',
+      confirmText: 'Delete',
+      cancelText: 'Cancel',
+      type: 'danger'
+    });
+    
+    if (result) {
       const updatedLists = lists.filter(list => list.id !== listId);
       setLists(updatedLists);
       toast.info('List deleted');
     }
   };
 
-  const handleDeleteCard = (listId, cardId) => {
-    const updatedLists = lists.map(list => {
-      if (list.id === listId) {
-        return {
-          ...list,
-          cards: list.cards.filter(card => card.id !== cardId)
-        };
-      }
-      return list;
+  const handleDeleteCard = async (listId, cardId) => {
+    const result = await confirm({
+      title: 'Delete Card',
+      message: 'Are you sure you want to delete this card?',
+      confirmText: 'Delete',
+      cancelText: 'Cancel',
+      type: 'danger'
     });
     
-    setLists(updatedLists);
-    setActiveCard(null);
-    toast.info('Card deleted');
+    if (result) {
+      const updatedLists = lists.map(list => {
+        if (list.id === listId) {
+          return {
+            ...list,
+            cards: list.cards.filter(card => card.id !== cardId)
+          };
+        }
+        return list;
+      });
+      
+      setLists(updatedLists);
+      setActiveCard(null);
+      toast.info('Card deleted');
+    }
   };
 
   const getRandomLabelColor = () => {
