@@ -12,7 +12,7 @@
   }
   
   body {
-    @apply bg-surface-background text-surface-800 dark:bg-surface-900 dark:text-surface-100 min-h-screen italic;
+    @apply bg-surface-background text-surface-800 dark:bg-surface-900 dark:text-surface-100 min-h-screen italic underline;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -20,15 +20,15 @@
   }
 
   h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl italic;
+    @apply text-3xl md:text-4xl lg:text-5xl italic underline;
   }
 
   h2 {
-    @apply text-2xl md:text-3xl lg:text-4xl italic;
+    @apply text-2xl md:text-3xl lg:text-4xl italic underline;
   }
 
   h3 {
-    @apply text-xl md:text-2xl lg:text-3xl italic;
+    @apply text-xl md:text-2xl lg:text-3xl italic underline;
   }
 }
 
@@ -54,7 +54,7 @@
   }
   
   .input {
-    @apply w-full px-3 py-2 bg-surface-100 dark:bg-surface-700 rounded-lg border border-surface-300 dark:border-surface-600 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-light;
+    @apply w-full px-3 py-2 bg-surface-100 dark:bg-surface-700 rounded-lg border border-surface-300 dark:border-surface-600 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-light underline;
   }
   
   .kanban-list {
@@ -62,7 +62,7 @@
   }
   
   .kanban-card {
-    @apply bg-white dark:bg-surface-700 rounded-lg shadow-sm p-3 mb-2 cursor-pointer hover:shadow-md transition-shadow;
+    @apply bg-white dark:bg-surface-700 rounded-lg shadow-sm p-3 mb-2 cursor-pointer hover:shadow-md transition-shadow underline;
   }
 
   .glass-panel {
