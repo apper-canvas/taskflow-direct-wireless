@@ -19,6 +19,7 @@ export default {
         },
         accent: '#f59e0b',
         surface: {
+          background: '#f9f7f5',  // Professional warm-toned background
           50: '#f8fafc',   // Lightest
           100: '#f1f5f9',
           200: '#e2e8f0',

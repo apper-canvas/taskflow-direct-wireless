@@ -11,7 +11,7 @@
   }
   
   body {
-    @apply bg-surface-50 text-surface-800 dark:bg-surface-900 dark:text-surface-100 min-h-screen;
+    @apply bg-surface-background text-surface-800 dark:bg-surface-900 dark:text-surface-100 min-h-screen;
   }
 
   h1, h2, h3, h4, h5, h6 {
