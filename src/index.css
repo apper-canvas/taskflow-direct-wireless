@@ -7,11 +7,12 @@
 @layer base {
   html {
     font-family: 'Inter', system-ui, sans-serif;
+    font-style: italic;
     scroll-behavior: smooth;
   }
   
   body {
-    @apply bg-surface-background text-surface-800 dark:bg-surface-900 dark:text-surface-100 min-h-screen;
+    @apply bg-surface-background text-surface-800 dark:bg-surface-900 dark:text-surface-100 min-h-screen italic;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -19,15 +20,15 @@
   }
 
   h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply text-3xl md:text-4xl lg:text-5xl italic;
   }
 
   h2 {
-    @apply text-2xl md:text-3xl lg:text-4xl;
+    @apply text-2xl md:text-3xl lg:text-4xl italic;
   }
 
   h3 {
-    @apply text-xl md:text-2xl lg:text-3xl;
+    @apply text-xl md:text-2xl lg:text-3xl italic;
   }
 }
 

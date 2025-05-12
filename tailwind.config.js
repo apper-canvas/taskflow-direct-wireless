@@ -8,9 +8,9 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#f97316',
-          light: '#fb923c',
-          dark: '#ea580c'
+          DEFAULT: '#14b8a6',
+          light: '#2dd4bf',
+          dark: '#0d9488'
         },
         secondary: {
           DEFAULT: '#8b5cf6',
@@ -36,6 +36,7 @@ export default {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
         heading: ['Inter', 'ui-sans-serif', 'system-ui']
       },
+      fontStyle: ['italic', 'normal'],
       boxShadow: {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
