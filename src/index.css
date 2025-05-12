@@ -12,7 +12,13 @@
   }
   
   body {
-    @apply bg-surface-background text-surface-800 dark:bg-surface-900 dark:text-surface-100 min-h-screen italic underline;
+    @apply min-h-screen italic underline text-surface-800 dark:text-surface-100;
+    background: linear-gradient(135deg, #fda4af 0%, #fff1f2 100%);
+  }
+
+  /* Apply dark mode gradient */
+  .dark body {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -35,6 +41,8 @@
 @layer components {
   .btn {
     @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-size: 200% auto;
+    transition: background-position 0.5s, transform 0.2s;
   }
 
   .btn-primary {
@@ -45,12 +53,17 @@
     @apply bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary-dark;
   }
 
+  .btn-gradient {
+    background-image: linear-gradient(45deg, #14b8a6, #8b5cf6, #f59e0b);
+    @apply text-white hover:shadow-md;
+  }
+
   .btn-outline {
     @apply border border-surface-300 dark:border-surface-700 hover:bg-surface-100 dark:hover:bg-surface-800 focus:ring-surface-500;
   }
 
   .card {
-    @apply bg-white dark:bg-surface-800 rounded-xl shadow-card p-4 transition-shadow hover:shadow-soft;
+    @apply rounded-xl shadow-card p-4 transition-shadow hover:shadow-soft bg-white/90 dark:bg-surface-800/90;
   }
   
   .input {
@@ -59,15 +72,31 @@
   
   .kanban-list {
     @apply bg-surface-100 dark:bg-surface-800 rounded-xl shadow-card p-3 min-w-[280px] max-w-[280px] md:min-w-[320px] md:max-w-[320px] h-full;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+  }
+
+  .dark .kanban-list {
+    background-image: linear-gradient(to bottom, rgba(30,41,59,0.9), rgba(15,23,42,0.7));
   }
   
   .kanban-card {
-    @apply bg-white dark:bg-surface-700 rounded-lg shadow-sm p-3 mb-2 cursor-pointer hover:shadow-md transition-shadow underline;
+    @apply rounded-lg shadow-sm p-3 mb-2 cursor-pointer hover:shadow-md transition-shadow underline;
+    background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+  }
+  
+  .dark .kanban-card {
+    background: linear-gradient(to right, rgba(51,65,85,0.95), rgba(30,41,59,0.85));
   }
 
   .glass-panel {
-    @apply bg-white/80 dark:bg-surface-800/80 backdrop-blur-md rounded-xl shadow-card;
+    @apply backdrop-blur-md rounded-xl shadow-card;
+    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
   }
+  
+  .dark .glass-panel {
+    background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.4));
+  }
+  
 }
 
 @layer utilities {
@@ -91,5 +120,14 @@
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
     @apply bg-surface-300 dark:bg-surface-600 rounded-full hover:bg-surface-400 dark:hover:bg-surface-500;
+  }
+  
+  .text-gradient {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(90deg, #14b8a6, #8b5cf6);
+  }
+  
+  .dark .text-gradient {
+    background-image: linear-gradient(90deg, #2dd4bf, #a78bfa);
   }
 }

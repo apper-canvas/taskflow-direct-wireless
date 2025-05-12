@@ -192,9 +192,9 @@ const Home = () => {
       ) : (
         <div>
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold">Your Boards</h2>
+            <h2 className="text-2xl font-semibold text-gradient">Your Boards</h2>
             <button 
-              className="btn btn-primary flex items-center"
+              className="btn btn-gradient flex items-center"
               onClick={() => setIsCreatingBoard(true)}
             >
               <PlusIcon size={18} className="mr-1" />
@@ -209,7 +209,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
             >
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-medium">Create New Board</h3>
+                <h3 className="text-xl font-medium text-gradient">Create New Board</h3>
                 <button 
                   className="text-surface-500 hover:text-surface-700 dark:text-surface-400 dark:hover:text-surface-200"
                   onClick={() => setIsCreatingBoard(false)}
@@ -251,7 +251,7 @@ const Home = () => {
                     Cancel
                   </button>
                   <button 
-                    className="btn btn-primary"
+                    className="btn btn-gradient"
                     onClick={handleCreateBoard}
                   >
                     Create Board
@@ -262,9 +262,9 @@ const Home = () => {
           )}
 
           {boards.length === 0 ? (
-            <div className="bg-surface-100 dark:bg-surface-800 rounded-xl p-6 text-center">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-surface-200 dark:bg-surface-700 text-surface-500 dark:text-surface-400 mb-4">
-                <ClipboardIcon size={24} />
+            <div className="rounded-xl p-6 text-center backdrop-blur-sm bg-white/70 dark:bg-surface-800/70">
+              <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 dark:from-primary-dark/20 dark:to-secondary-dark/20 text-surface-500 dark:text-surface-400 mb-4">
+                <ClipboardIcon size={24} className="text-gradient" />
               </div>
               <h3 className="text-lg font-medium mb-2">No boards yet</h3>
               <p className="text-surface-500 dark:text-surface-400 mb-4">
@@ -272,7 +272,7 @@ const Home = () => {
               </p>
               <button 
                 className="btn btn-primary inline-flex items-center"
-                onClick={() => setIsCreatingBoard(true)}
+                className="btn btn-gradient inline-flex items-center" onClick={() => setIsCreatingBoard(true)}
               >
                 <PlusIcon size={18} className="mr-1" />
                 Create Board
@@ -283,16 +283,16 @@ const Home = () => {
               {boards.map(board => (
                 <motion.div
                   key={board.id}
-                  className="card cursor-pointer hover:border hover:border-primary-light transition-all"
+                  className="card cursor-pointer hover:border hover:border-primary-light transition-all bg-gradient-to-br from-white/90 to-white/70 dark:from-surface-800/90 dark:to-surface-800/70"
                   whileHover={{ y: -5 }}
                   onClick={() => handleSelectBoard(board.id)}
                 >
                   <div className="flex items-start mb-3">
-                    <div className="p-2 rounded-lg bg-primary/10 text-primary dark:bg-primary-dark/20 dark:text-primary-light mr-3">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 dark:from-primary-dark/20 dark:to-secondary-dark/20 text-primary dark:text-primary-light mr-3">
                       <LayoutIcon size={20} />
                     </div>
                     <div>
-                      <h3 className="font-medium text-lg">{board.title}</h3>
+                      <h3 className="font-medium text-lg text-gradient">{board.title}</h3>
                       <p className="text-surface-500 dark:text-surface-400 text-sm line-clamp-2">
                         {board.description || "No description"}
                       </p>

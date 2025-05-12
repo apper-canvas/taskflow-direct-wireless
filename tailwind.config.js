@@ -7,6 +7,22 @@ export default {
   theme: {
     extend: {
       colors: {
+        gradients: {
+          primary: {
+            light: 'linear-gradient(135deg, #14b8a6 0%, #2dd4bf 100%)',
+            dark: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 100%)',
+            text: 'linear-gradient(90deg, #14b8a6, #8b5cf6)'
+          },
+          secondary: {
+            light: 'linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%)',
+            dark: 'linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%)',
+            text: 'linear-gradient(90deg, #8b5cf6, #f59e0b)'
+          },
+          surface: {
+            light: 'linear-gradient(135deg, #fda4af 0%, #f8fafc 100%)',
+            dark: 'linear-gradient(135deg, #0f172a 0%, #334155 100%)'
+          }
+        },
         primary: {
           DEFAULT: '#14b8a6',
           light: '#2dd4bf',

@@ -241,9 +241,9 @@ const MainFeature = ({ board, onUpdateBoard }) => {
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold mb-2">{board.title}</h1>
-        <p className="text-surface-600 dark:text-surface-400">{board.description}</p>
+      <div className="mb-6"> 
+        <h1 className="text-2xl md:text-3xl font-bold mb-2 text-gradient">{board.title}</h1>
+        <p className="text-surface-600 dark:text-surface-400">{board.description}</p> 
       </div>
       
       {/* Kanban Board Container */}
@@ -372,7 +372,7 @@ const MainFeature = ({ board, onUpdateBoard }) => {
                       Cancel
                     </button>
                     <button
-                      className="bg-primary text-white px-3 py-1 rounded text-sm"
+                      className="bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 rounded text-sm"
                       onClick={() => handleAddCard(list.id)}
                     >
                       Add Card
@@ -414,7 +414,7 @@ const MainFeature = ({ board, onUpdateBoard }) => {
                     Cancel
                   </button>
                   <button
-                    className="bg-primary text-white px-3 py-1 rounded text-sm"
+                    className="bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 rounded text-sm"
                     onClick={handleAddList}
                   >
                     Add List
@@ -423,7 +423,7 @@ const MainFeature = ({ board, onUpdateBoard }) => {
               </div>
             ) : (
               <button
-                className="w-full flex items-center justify-center py-3 bg-surface-200/50 hover:bg-surface-200 dark:bg-surface-800/50 dark:hover:bg-surface-800 text-surface-600 hover:text-surface-800 dark:text-surface-400 dark:hover:text-surface-200 rounded-xl"
+                className="w-full flex items-center justify-center py-3 bg-gradient-to-r from-surface-100/50 to-surface-200/50 hover:from-surface-100 hover:to-surface-200 dark:from-surface-800/50 dark:to-surface-700/50 dark:hover:from-surface-800 dark:hover:to-surface-700 text-surface-600 hover:text-surface-800 dark:text-surface-400 dark:hover:text-surface-200 rounded-xl"
                 onClick={() => setShowAddList(true)}
               >
                 <PlusIcon size={16} className="mr-1" />
@@ -509,7 +509,7 @@ const MainFeature = ({ board, onUpdateBoard }) => {
                     }}
                   />
                   <button 
-                    className="btn btn-primary py-1 px-2 text-sm"
+                    className="btn btn-gradient py-1 px-2 text-sm"
                     onClick={(e) => {
                       const input = e.target.previousSibling;
                       addLabelToCard(activeCard.listId, activeCard.card.id, input.value);

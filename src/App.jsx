@@ -26,17 +26,17 @@ function App() {
   return (
     <ConfirmProvider>
       <Router>
-        <div className="flex flex-col min-h-screen transition-colors duration-200">
-          <header className="bg-white dark:bg-surface-800 shadow-sm sticky top-0 z-10">
+        <div className="flex flex-col min-h-screen transition-all duration-200">
+          <header className="bg-white/90 dark:bg-surface-800/90 backdrop-blur-sm shadow-sm sticky top-0 z-10">
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">
               <div className="flex items-center space-x-2">
                 <div className="text-primary dark:text-primary-light">
                   {React.createElement(getIcon('Kanban'), { size: 24 })}
                 </div>
-                <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                   TaskFlow
                 </h1>
-              </div>
+              </div> 
               <button 
                 onClick={toggleDarkMode} 
                 className="p-2 rounded-full hover:bg-surface-100 dark:hover:bg-surface-700 transition-colors"
@@ -56,7 +56,7 @@ function App() {
             </Routes>
           </main>
           
-          <footer className="bg-white dark:bg-surface-800 border-t border-surface-200 dark:border-surface-700 py-4 mt-8">
+          <footer className="bg-white/90 dark:bg-surface-800/90 backdrop-blur-sm border-t border-surface-200 dark:border-surface-700 py-4 mt-8">
             <div className="container mx-auto px-4 text-center text-surface-500 dark:text-surface-400 text-sm">
               TaskFlow &copy; {new Date().getFullYear()} - Visual Task Management System
             </div>
