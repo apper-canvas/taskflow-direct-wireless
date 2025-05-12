@@ -24,7 +24,7 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen transition-colors duration-200">
+      <div className="flex flex-col min-h-screen transition-colors duration-200">
         <header className="bg-white dark:bg-surface-800 shadow-sm sticky top-0 z-10">
           <div className="container mx-auto px-4 py-3 flex justify-between items-center">
             <div className="flex items-center space-x-2">
@@ -47,7 +47,7 @@ function App() {
           </div>
         </header>
         
-        <main className="container mx-auto px-4 py-6">
+        <main className="container mx-auto px-4 py-6 flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
